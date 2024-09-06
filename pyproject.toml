@@ -32,7 +32,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: FreeBSD License",
+    "License :: OSI Approved :: BSD License",
     "Typing :: Typed",
 ]
 include = [
