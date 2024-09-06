@@ -88,3 +88,4 @@ repos:
           - --output-format=pylint
         additional_dependencies:
           - prospector-profile-duplicated==1.5.0 # pypi
+          - prospector-profile-utils==1.7.2 # pypi

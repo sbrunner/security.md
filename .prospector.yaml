@@ -4,3 +4,11 @@ inherits:
   - utils:no-design-checks
 
 doc-warnings: true
+
+bandit:
+  options:
+    config: .bandit.yaml
+
+pydocstyle:
+  disable:
+    - D417 # Missing argument descriptions in the docstring
