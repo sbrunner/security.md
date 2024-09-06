@@ -30,10 +30,10 @@ class Security:
         Initialize.
 
         Arguments:
+        ---------
             status: the content of the SECURITY.md file.
             check: Set to `False` to skip the check.
         """
-
         self.headers = []
         self.data = []
 
@@ -64,12 +64,13 @@ class Security:
         Check the content.
 
         Arguments:
+        ---------
             verbose: the verbosity level, `-1` for no output, `0` for errors only, `1` for all.
 
         Return:
+        ------
             `True` if the content is valid, `False` otherwise.
         """
-
         success = True
         if self.version_index == -1:
             if verbose >= 0:
@@ -98,6 +99,7 @@ class Security:
         Parse the HTML table.
 
         Arguments:
+        ---------
             elem: The XML element
         """
         if elem.tag == "th":
@@ -116,28 +118,62 @@ class Security:
         Get the list of supported versions.
 
         Return:
+        ------
             The list of supported versions.
         """
-        return [r[self.version_index] for r in self.data if r[self.support_until_index] != SUPPORT_UNSUPPORTED]
+        return [
+            r[self.version_index] for r in self.data if r[self.support_until_index] != SUPPORT_UNSUPPORTED
+        ]
 
-    def all_tags(self, branch:str) -> list[str]:
+    def _get_alternate_tag(self, value: str) -> list[str]:
+        """
+        Get the clean list of alternate tags.
+
+        Arguments:
+        ---------
+            value: The value of the alternate tag.
+
+        Return:
+        ------
+            The list of alternate tags as clean list.
+        """
+        return [tag.strip() for tag in value.split(",") if tag.strip()]
+
+    def all_tags(self, branch: str) -> set[str]:
         """
         Get the list of all tags related to a branch.
 
-        Parameters:
+        Arguments:
+        ---------
             branch: The branch name.
 
         Return:
+        ------
             The list of tags.
         """
+        has_latest = False
+        used_alternate_tags = set()
+        used_raw = None
         for raw in self.data:
+            alternate_tags = (
+                set(self._get_alternate_tag(raw[self.alternate_tag_index]))
+                if self.alternate_tag_index >= 0
+                else set()
+            )
             if raw[self.version_index] == branch:
-                if raw[self.support_until_index] == SUPPORT_UNSUPPORTED:
-                    return []
-                tags = [branch]
-                if raw[self.alternate_tag_index] is not None:
-                    tags.extend([tag.strip() for tag in raw[self.alternate_tag_index].split(',') if tag.strip()])
-                if self.data[-1][self.version_index] == branch:
-                    tags.append("latest")
-                return tags
-        raise ValueError(f"Branch {branch} not found.")
+                used_raw = raw
+                used_alternate_tags = alternate_tags
+            if "latest" in alternate_tags:
+                has_latest = True
+
+        if used_raw is None:
+            raise ValueError(f"Branch {branch} not found.")
+
+        if used_raw[self.support_until_index] == SUPPORT_UNSUPPORTED:
+            return set()
+        tags = {branch}
+        if self.alternate_tag_index >= 0:
+            tags.update(used_alternate_tags)
+        if not has_latest and self.data[-1][self.version_index] == branch:
+            tags.add("latest")
+        return tags

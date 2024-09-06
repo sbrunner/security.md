@@ -40,10 +40,14 @@ include = [
     "security_md/py.typed",
 ]
 
+[tool.poetry.scripts]
+security-md = "security_md.cli:main"
+
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
 markdown-table = "2020.12.3"
 defusedxml = "0.7.1"
+markdown = "3.7"
 
 [tool.poetry.group.dev.dependencies]
 prospector = { version = "1.10.3", extras = ["with-bandit", "with-mypy", "with-pyroma"] }
