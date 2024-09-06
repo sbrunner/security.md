@@ -1,0 +1,6 @@
+inherits:
+  - duplicated
+  - utils:base
+  - utils:no-design-checks
+
+doc-warnings: true
