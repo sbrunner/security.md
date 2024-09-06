@@ -113,16 +113,24 @@ class Security:
         for element in list(elem):
             self._pe(element)
 
-    def supported_versions(self) -> list[str]:
+    def branches(self) -> list[str]:
         """
-        Get the list of supported versions.
+        Get the list of supported branches.
 
         Return:
         ------
-            The list of supported versions.
+            The list of supported branches.
         """
+        alternate_tags = set()
+        if self.alternate_tag_index >= 0:
+            for raw in self.data:
+                alternate_tags.update(self._get_alternate_tag(raw[self.alternate_tag_index]))
+
         return [
-            r[self.version_index] for r in self.data if r[self.support_until_index] != SUPPORT_UNSUPPORTED
+            r[self.version_index]
+            for r in self.data
+            if r[self.support_until_index] != SUPPORT_UNSUPPORTED
+            and r[self.version_index] not in alternate_tags
         ]
 
     def _get_alternate_tag(self, value: str) -> list[str]:
