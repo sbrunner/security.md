@@ -2,7 +2,13 @@
 
 Tools used to parse standardize [SECURITY.md](https://github.com/sbrunner/security.md/wiki/SECURITY.md) files.
 
-## Usage:
+## Install
+
+```bash
+pip install security.md
+```
+
+## Usage
 
 ```python
 from security_md import Security
