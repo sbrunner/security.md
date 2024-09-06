@@ -1,6 +1,6 @@
 ## SECURITY.md
 
-Tools used to parse [standardize](https://github.com/sbrunner/security.md/wiki/SECURITY.md) SECURITY.md files.
+Tools used to parse standardize [SECURITY.md](https://github.com/sbrunner/security.md/wiki/SECURITY.md) files.
 
 ## Usage:
 
