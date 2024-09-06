@@ -15,7 +15,7 @@ def main() -> None:
     with open(args.file, encoding="utf-8") as security_file:
         security = Security(security_file.read(), check=False)
         security.check(verbose=args.verbose)
-        for version in security.supported_versions():
+        for version in security.branches():
             print(f"Version: {version}, Published tags: {', '.join(security.all_tags(version))}")
 
 
