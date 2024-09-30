@@ -14,7 +14,6 @@
     schedule: "after 5pm on the first day of the month",
   },
   "pre-commit": { enabled: true },
-  baseBranches: ["master"],
   regexManagers: [
     /** Do updates on pre-commit additional dependencies */
     {
