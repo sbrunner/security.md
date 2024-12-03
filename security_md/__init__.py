@@ -1,6 +1,4 @@
-"""
-Read the table of versions from SECURITY.md.
-"""
+"""Read the table of versions from SECURITY.md."""
 
 import xml.etree.ElementTree  # nosec
 from typing import Optional
@@ -17,9 +15,7 @@ SUPPORT_UNSUPPORTED = "Unsupported"
 
 
 class Security:
-    """
-    Read the table of versions from SECURITY.md.
-    """
+    """Read the table of versions from SECURITY.md."""
 
     headers: list[str]
     data: list[list[str]]
@@ -33,6 +29,7 @@ class Security:
         ---------
             status: the content of the SECURITY.md file.
             check: Set to `False` to skip the check.
+
         """
         self.headers = []
         self.data = []
@@ -55,9 +52,8 @@ class Security:
         )
 
         # Check the content if the content isn't empty
-        if check and status:
-            if not self.check(verbose=0):
-                raise ValueError("SECURITY.md file is not valid.")
+        if check and status and not self.check(verbose=0):
+            raise ValueError("SECURITY.md file is not valid.")
 
     def check(self, verbose: int = -1) -> bool:
         """
@@ -70,6 +66,7 @@ class Security:
         Return:
         ------
             `True` if the content is valid, `False` otherwise.
+
         """
         success = True
         if self.version_index == -1:
@@ -101,6 +98,7 @@ class Security:
         Arguments:
         ---------
             elem: The XML element
+
         """
         if elem.tag == "th":
             assert elem.text is not None
@@ -120,6 +118,7 @@ class Security:
         Return:
         ------
             The list of supported branches.
+
         """
         alternate_tags = set()
         if self.alternate_tag_index >= 0:
@@ -144,6 +143,7 @@ class Security:
         Return:
         ------
             The list of alternate tags as clean list.
+
         """
         return [tag.strip() for tag in value.split(",") if tag.strip()]
 
@@ -158,6 +158,7 @@ class Security:
         Return:
         ------
             The list of tags.
+
         """
         has_latest = False
         used_alternate_tags = set()
