@@ -3,3 +3,4 @@ inherits:
   - utils:base
   - utils:no-design-checks
   - utils:unsafe
+  - utils:fix
