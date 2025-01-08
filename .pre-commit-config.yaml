@@ -17,9 +17,7 @@ repos:
     hooks:
       - id: jsonschema-validator
         files: |-
-          (?x)^(
-            ci/config\.yaml
-          )$
+          ^\.github/publish\.yaml$
   - repo: https://github.com/sbrunner/hooks
     rev: 1.1.2
     hooks:
@@ -84,3 +82,7 @@ repos:
       - id: prettier
         additional_dependencies:
           - prettier@3.4.1 # npm
+  - repo: https://github.com/sbrunner/python-versions-hook
+    rev: 0.8.0
+    hooks:
+      - id: python-versions
