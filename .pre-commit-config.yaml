@@ -13,20 +13,20 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/sbrunner/jsonschema-validator
-    rev: 0.3.2
+    rev: 1.0.0
     hooks:
       - id: jsonschema-validator
         files: |-
           ^\.github/publish\.yaml$
   - repo: https://github.com/sbrunner/hooks
-    rev: 1.1.2
+    rev: 1.2.1
     hooks:
       - id: copyright
       - id: poetry-lock
         additional_dependencies:
-          - poetry==1.8.4 # pypi
+          - poetry==2.0.1 # pypi
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.3.0
+    rev: v2.4.1
     hooks:
       - id: codespell
   - repo: https://github.com/shellcheck-py/shellcheck-py
@@ -38,7 +38,7 @@ repos:
     hooks:
       - id: git-check
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.30.0
+    rev: 0.31.1
     hooks:
       - id: check-github-actions
       - id: check-github-workflows
@@ -51,7 +51,7 @@ repos:
           - --builtin-schema
           - github-workflows-require-timeout
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 39.42.4
+    rev: 39.146.1
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/sirwart/ripsecrets
@@ -59,13 +59,13 @@ repos:
     hooks:
       - id: ripsecrets
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.1
+    rev: v0.9.4
     hooks:
       - id: ruff-format
         args:
           - --line-length=110
   - repo: https://github.com/PyCQA/prospector
-    rev: v1.13.3
+    rev: 1.14.0
     hooks:
       - id: prospector
         args:
@@ -73,15 +73,15 @@ repos:
           - --die-on-tool-error
           - --output-format=pylint
         additional_dependencies:
-          - prospector-profile-duplicated==1.8.0 # pypi
-          - prospector-profile-utils==1.13.0 # pypi
-          - ruff==0.8.1 # pypi
+          - prospector-profile-duplicated==1.10.4 # pypi
+          - prospector-profile-utils==1.17.0 # pypi
+          - ruff==0.9.4 # pypi
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.1.0
     hooks:
       - id: prettier
         additional_dependencies:
-          - prettier@3.4.1 # npm
+          - prettier@3.4.2 # npm
   - repo: https://github.com/sbrunner/python-versions-hook
     rev: 0.8.0
     hooks:
