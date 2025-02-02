@@ -36,10 +36,10 @@ defusedxml = "0.7.1"
 markdown = "3.7"
 
 [tool.poetry.group.dev.dependencies]
-prospector = { version = "1.13.3", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
+prospector = { version = "1.14.0", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
 types-markdown = "3.7.0.20241204"
-prospector-profile-utils = "1.13.0"
-prospector-profile-duplicated = "1.8.1"
+prospector-profile-utils = "1.17.0"
+prospector-profile-duplicated = "1.10.4"
 
 [build-system]
 requires = [
