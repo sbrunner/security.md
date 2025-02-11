@@ -1,6 +1,6 @@
 """Read the table of versions from SECURITY.md."""
 
-import xml.etree.ElementTree  # nosec
+import xml.etree.ElementTree as ET  # nosec
 from typing import Optional
 
 import markdown
@@ -21,7 +21,7 @@ class Security:
     data: list[list[str]]
     _row: Optional[list[str]] = None
 
-    def __init__(self, status: str, check: bool = True):
+    def __init__(self, status: str, check: bool = True) -> None:
         """
         Initialize.
 
@@ -37,7 +37,7 @@ class Security:
         markdown_instance = markdown.Markdown(extensions=[TableExtension()])
 
         elem = markdown_instance.parser.parseDocument(
-            [s for s in status.split("\n") if s != "" and s[0] == "|"]
+            [s for s in status.split("\n") if s != "" and s[0] == "|"],
         )
         self._pe(elem.getroot())
 
@@ -53,7 +53,8 @@ class Security:
 
         # Check the content if the content isn't empty
         if check and status and not self.check(verbose=0):
-            raise ValueError("SECURITY.md file is not valid.")
+            msg = "SECURITY.md file is not valid."
+            raise ValueError(msg)
 
     def check(self, verbose: int = -1) -> bool:
         """
@@ -91,7 +92,7 @@ class Security:
 
         return success
 
-    def _pe(self, elem: xml.etree.ElementTree.Element) -> None:
+    def _pe(self, elem: ET.Element) -> None:
         """
         Parse the HTML table.
 
@@ -107,7 +108,7 @@ class Security:
             self._row = []
             self.data.append(self._row)
         if elem.tag == "td":
-            self._row.append(elem.text)  # type: ignore
+            self._row.append(elem.text)  # type: ignore[union-attr,arg-type]
         for element in list(elem):
             self._pe(element)
 
@@ -176,7 +177,8 @@ class Security:
                 has_latest = True
 
         if used_raw is None:
-            raise ValueError(f"Branch {branch} not found.")
+            msg = f"Branch {branch} not found."
+            raise ValueError(msg)
 
         if used_raw[self.support_until_index] == SUPPORT_UNSUPPORTED:
             return set()
