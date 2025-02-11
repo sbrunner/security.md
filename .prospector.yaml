@@ -3,9 +3,15 @@ inherits:
   - utils:base
   - utils:no-design-checks
   - utils:fix
+
+pycodestyle:
+  disable:
+    - N817 # camelcase, in conflict with Ruff about xml.etree.ElementTree
+
 mypy:
   options:
     python-version: "3.9"
+
 ruff:
   options:
     target-version: py39
