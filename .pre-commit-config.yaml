@@ -52,21 +52,21 @@ repos:
           - --builtin-schema
           - github-workflows-require-timeout
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 39.185.9
+    rev: 39.213.0
     hooks:
       - id: renovate-config-validator
   - repo: https://github.com/sirwart/ripsecrets
-    rev: v0.1.8
+    rev: v0.1.9
     hooks:
       - id: ripsecrets
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.10
+    rev: v0.11.2
     hooks:
       - id: ruff-format
         args:
           - --line-length=110
   - repo: https://github.com/PyCQA/prospector
-    rev: v1.15.3
+    rev: v1.16.0
     hooks:
       - id: prospector
         args:
@@ -77,7 +77,7 @@ repos:
         additional_dependencies:
           - prospector-profile-duplicated==1.10.5 # pypi
           - prospector-profile-utils==1.22.3 # pypi
-          - ruff==0.9.10 # pypi
+          - ruff==0.11.2 # pypi
         exclude: |-
           (?x)(
             ^tests?/?
@@ -95,7 +95,7 @@ repos:
           - --profile=utils:pre-commit
         additional_dependencies:
           - prospector-profile-utils==1.22.3 # pypi
-          - ruff==0.9.10 # pypi
+          - ruff==0.11.2 # pypi
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.1.0
     hooks:
