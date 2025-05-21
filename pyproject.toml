@@ -66,6 +66,7 @@ include = [
     "security_md/py.typed",
 ]
 requires-python = ">=3.9"
+dependencies = ["markdown-table<2021,>=2020", "defusedxml<1,>=0", "markdown<4,>=3"]
 
 [project.urls]
 repository = "https://github.com/camptocamp/c2cciutils"
