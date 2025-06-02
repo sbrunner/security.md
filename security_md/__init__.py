@@ -92,7 +92,7 @@ class Security:
 
         return success
 
-    def _pe(self, elem: ET.Element) -> None:
+    def _pe(self, elem: Optional[ET.Element]) -> None:
         """
         Parse the HTML table.
 
@@ -101,6 +101,8 @@ class Security:
             elem: The XML element
 
         """
+        if elem is None:
+            return
         if elem.tag == "th":
             assert elem.text is not None
             self.headers.append(elem.text)
