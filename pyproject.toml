@@ -12,7 +12,7 @@ version = "0.0.0"
 python = ">=3.9,<4.0"
 markdown-table = "2020.12.3"
 defusedxml = "0.7.1"
-markdown = "3.8"
+markdown = "3.8.2"
 
 [tool.poetry.group.dev.dependencies]
 prospector = { version = "1.17.2", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
