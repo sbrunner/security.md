@@ -1,7 +1,6 @@
 """Read the table of versions from SECURITY.md."""
 
 import xml.etree.ElementTree as ET  # nosec
-from typing import Optional
 
 import markdown
 from markdown.extensions.tables import TableExtension
