@@ -19,7 +19,7 @@ class Security:
 
     headers: list[str]
     data: list[list[str]]
-    _row: Optional[list[str]] = None
+    _row: list[str] | None = None
 
     def __init__(self, status: str, check: bool = True) -> None:
         """
@@ -92,7 +92,7 @@ class Security:
 
         return success
 
-    def _pe(self, elem: Optional[ET.Element]) -> None:
+    def _pe(self, elem: ET.Element | None) -> None:
         """
         Parse the HTML table.
 
