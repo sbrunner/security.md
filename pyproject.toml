@@ -1,5 +1,5 @@
 [tool.ruff]
-target-version = "py39"
+target-version = "py310"
 line-length = 110
 
 [tool.ruff.lint]
@@ -20,14 +20,14 @@ convention = "numpy"
 version = "0.0.0"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<4.0"
+python = ">=3.10,<4.0"
 markdown-table = "2020.12.3"
 defusedxml = "0.7.1"
-markdown = "3.9"
+markdown = "3.10"
 
 [tool.poetry.group.dev.dependencies]
 prospector = { version = "1.17.3", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
-types-markdown = "3.9.0.20250906"
+types-markdown = "3.10.0.20251106"
 prospector-profile-utils = "1.26.5"
 prospector-profile-duplicated = "1.10.5"
 
@@ -54,11 +54,9 @@ default = "major"
 classifiers = [
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
-    'License :: OSI Approved :: BSD License',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: 3.12',
@@ -70,13 +68,13 @@ name = "security.md"
 description = "Common utilities for Camptocamp CI"
 readme = "README.md"
 keywords = ["ci"]
-license = "FreeBSD"
+license = "BSD-2-Clause"
 authors = [{name = "Camptocamp",email = "info@camptocamp.com"}]
 packages = [{ include = "security_md" }]
 include = [
     "security_md/py.typed",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = ["markdown-table<2021,>=2020", "defusedxml<1,>=0", "markdown<4,>=3"]
 
 [project.urls]
