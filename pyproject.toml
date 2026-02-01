@@ -23,7 +23,7 @@ version = "0.0.0"
 python = ">=3.10,<4.0"
 markdown-table = "2020.12.3"
 defusedxml = "0.7.1"
-markdown = "3.10"
+markdown = "3.10.1"
 
 [tool.poetry.group.dev.dependencies]
 prospector = { version = "1.17.3", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
