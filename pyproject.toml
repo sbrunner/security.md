@@ -26,7 +26,7 @@ defusedxml = "0.7.1"
 markdown = "3.10.1"
 
 [tool.poetry.group.dev.dependencies]
-prospector = { version = "1.17.3", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
+prospector = { version = "1.18.0", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
 types-markdown = "3.10.0.20251106"
 prospector-profile-utils = "1.26.5"
 prospector-profile-duplicated = "1.11.0"
