@@ -29,7 +29,7 @@ markdown = "3.10.1"
 prospector = { version = "1.18.0", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
 types-markdown = "3.10.0.20251106"
 prospector-profile-utils = "1.26.5"
-prospector-profile-duplicated = "1.11.0"
+prospector-profile-duplicated = "1.12.0"
 
 [tool.poetry-dynamic-versioning]
 enable = true
