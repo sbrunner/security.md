@@ -1,3 +1,46 @@
+
+[build-system]
+requires = [
+    "poetry-core>=1.0.0",
+    "poetry-dynamic-versioning[plugin]>=0.19.0",
+    "poetry-dynamic-versioning",
+]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Typing :: Typed',
+]
+dynamic = ["dependencies", "version"]
+name = "security.md"
+description = "Common utilities for Camptocamp CI"
+readme = "README.md"
+keywords = ["ci"]
+license = "BSD-2-Clause"
+authors = [{name = "Camptocamp",email = "info@camptocamp.com"}]
+packages = [{ include = "security_md" }]
+include = [
+    "security_md/py.typed",
+]
+requires-python = ">=3.10"
+dependencies = ["markdown-table<2021,>=2020", "defusedxml<1,>=0", "markdown<4,>=3"]
+
+[project.urls]
+repository = "https://github.com/camptocamp/c2cciutils"
+"Bug Tracker" = "https://github.com/camptocamp/c2cciutils/issues"
+
+[project.scripts]
+security-md = "security_md.cli:main"
+
 [tool.ruff]
 target-version = "py310"
 line-length = 110
@@ -49,45 +92,3 @@ format-jinja = """
 
 [tool.poetry-plugin-tweak-dependencies-version]
 default = "major"
-
-[project]
-classifiers = [
-    'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Developers',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.10',
-    'Programming Language :: Python :: 3.11',
-    'Programming Language :: Python :: 3.12',
-    'Programming Language :: Python :: 3.13',
-    'Typing :: Typed',
-]
-dynamic = ["dependencies", "version"]
-name = "security.md"
-description = "Common utilities for Camptocamp CI"
-readme = "README.md"
-keywords = ["ci"]
-license = "BSD-2-Clause"
-authors = [{name = "Camptocamp",email = "info@camptocamp.com"}]
-packages = [{ include = "security_md" }]
-include = [
-    "security_md/py.typed",
-]
-requires-python = ">=3.10"
-dependencies = ["markdown-table<2021,>=2020", "defusedxml<1,>=0", "markdown<4,>=3"]
-
-[project.urls]
-repository = "https://github.com/camptocamp/c2cciutils"
-"Bug Tracker" = "https://github.com/camptocamp/c2cciutils/issues"
-
-[project.scripts]
-security-md = "security_md.cli:main"
-
-[build-system]
-requires = [
-    "poetry-core>=1.0.0",
-    "poetry-dynamic-versioning[plugin]>=0.19.0",
-    "poetry-dynamic-versioning",
-]
-build-backend = "poetry.core.masonry.api"
