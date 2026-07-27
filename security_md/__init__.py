@@ -1,3 +1,5 @@
+# Copyright (c) 2024-2026, Stéphane Brunner
+
 """Read the table of versions from SECURITY.md."""
 
 import xml.etree.ElementTree as ET  # nosec
