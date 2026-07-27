@@ -1,3 +1,5 @@
+# Copyright (c) 2024-2026, Stéphane Brunner
+
 """Command line interface for the security_md package."""
 
 import argparse
