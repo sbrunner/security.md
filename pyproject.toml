@@ -27,7 +27,7 @@ markdown = "3.10.2"
 
 [tool.poetry.group.dev.dependencies]
 prospector = { version = "1.19.0", extras = ["with-bandit", "with-mypy", "with-pyroma", "with-ruff"] }
-types-markdown = "3.10.2.20260518"
+types-markdown = "3.10.2.20260712"
 prospector-profile-utils = "1.27.0"
 prospector-profile-duplicated = "1.12.0"
 
@@ -86,7 +86,7 @@ security-md = "security_md.cli:main"
 
 [build-system]
 requires = [
-    "poetry-core==2.4.0",
+    "poetry-core==2.4.1",
     "poetry-dynamic-versioning==1.10.0",
 ]
 build-backend = "poetry.core.masonry.api"
